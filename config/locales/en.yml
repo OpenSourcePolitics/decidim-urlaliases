@@ -1,0 +1,38 @@
+---
+en:
+  decidim:
+    url_aliases:
+      admin:
+        menu:
+          url_aliases: Url aliases
+        models:
+          redirect_rule:
+            fields:
+              active: Active
+              destination: Destination
+              id: Id
+              source: Source
+              source_is_case_sensitive: Source is case sensitive
+        redirect_rules:
+          create:
+            error: There was an error creating a new redirect rule.
+            success: Redirect Rule created successfully.
+          destroy:
+            success: Redirect rule successfully destroyed
+          edit:
+            title: Edit redirect rule
+            update: Update
+          form:
+            source_redirection_explanation: "Instructions: <br/>
+                                             The URL input should always be http, even if anyone wanted to redirect an https url on input. Once the server receives the page request, it changes to the http protocol.<br />
+                                             If the url you want to redirect is exlusivamente the root, this has to end with a slash <strong> / </strong>. Example: http://www.example.org/
+                                            "
+          new:
+            create: Create
+            title: New redirect rule
+          no_redirect_rules: No redirect rules
+          update:
+            error: There was an error when updating this redirect rule.
+            success: Redirect Rule updated successfully
+        titles:
+          redirect_rules: Redirect rules
