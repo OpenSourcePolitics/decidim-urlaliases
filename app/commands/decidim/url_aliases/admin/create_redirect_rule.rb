@@ -12,7 +12,10 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           create_redirect_rule
+
           broadcast(:ok)
+        rescue ActiveRecord::RecordInvalid
+          broadcast(:invalid)
         end
 
         private
@@ -23,18 +26,18 @@ module Decidim
           Decidim.traceability.create!(
             RedirectRule,
             form.current_user,
-            {
-              source: form.source,
-              source_is_case_sensitive: form.source_is_case_sensitive,
-              destination: form.destination,
-              active: form.active,
-              organization: form.organization
-            },
-            extra: {
-              source: form.source,
-              destination: form.destination
-            }
+            attributes
           )
+        end
+
+        def attributes
+          {
+            source: form.source,
+            source_is_case_sensitive: form.source_is_case_sensitive,
+            destination: form.destination,
+            active: form.active,
+            organization: form.current_organization
+          }
         end
       end
     end

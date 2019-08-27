@@ -4,5 +4,9 @@
 base_locale: en
 locales: [en, fr]
 ignore_missing:
+  - "decidim.admin.actions.*"
 
 ignore_unused:
+  - "activemodel.errors.models.redirect_rule.attributes.*"
+  - "decidim.url_aliases.admin.menu.url_aliases"
+  - "decidim.url_aliases.admin_log.*"

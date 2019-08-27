@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", DECIDIM_VERSION
   s.add_dependency "rails", ">= 5.2"
   s.add_dependency "redirector"
+  s.add_development_dependency "database_cleaner"
 
   s.add_development_dependency "decidim-dev", DECIDIM_VERSION
 end

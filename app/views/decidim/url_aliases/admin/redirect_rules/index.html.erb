@@ -23,7 +23,7 @@
         </thead>
         <tbody>
           <% @redirect_rules.each do |redirect_rule| %>
-            <tr>
+            <tr id="redirect-rule-<%= redirect_rule.id %>">
               <td><%= redirect_rule.id %></td>
               <td><%= redirect_rule.source %></td>
               <td><%= redirect_rule.destination %></td>

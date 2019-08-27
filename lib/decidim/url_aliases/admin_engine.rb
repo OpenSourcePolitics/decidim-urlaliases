@@ -26,7 +26,7 @@ module Decidim
                     icon_name: "wrench",
                     position: 14,
                     active: [%w(decidim/url_aliases/admin/redirect_rules), []],
-                    if: allowed_to?(:read, :redirect_rule)
+                    if: allowed_to?(:update, :organization, organization: current_organization)
         end
       end
 

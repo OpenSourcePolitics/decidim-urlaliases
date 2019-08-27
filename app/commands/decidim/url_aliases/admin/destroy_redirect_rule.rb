@@ -11,7 +11,10 @@ module Decidim
 
         def call
           destroy_redirect_rule
+
           broadcast(:ok)
+        rescue ActiveRecord::RecordNotDestroyed
+          broadcast(:invalid)
         end
 
         private
@@ -20,7 +23,7 @@ module Decidim
 
         def destroy_redirect_rule
           Decidim.traceability.perform_action!(
-            "delete",
+            :delete,
             @redirect_rule,
             current_user
           ) do

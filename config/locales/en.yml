@@ -1,5 +1,14 @@
 ---
 en:
+  activemodel:
+    errors:
+      models:
+        redirect_rule:
+          attributes:
+            destination:
+              not_recognized: must be recognized by the application.
+            source:
+              reserved: must not be a reserved keyword.
   decidim:
     url_aliases:
       admin:
@@ -18,15 +27,18 @@ en:
             error: There was an error creating a new redirect rule.
             success: Redirect Rule created successfully.
           destroy:
+            error: There was an error deleting the redirect rule.
             success: Redirect rule successfully destroyed
           edit:
             title: Edit redirect rule
             update: Update
           form:
-            source_redirection_explanation: "Instructions: <br/>
-                                             The URL input should always be http, even if anyone wanted to redirect an https url on input. Once the server receives the page request, it changes to the http protocol.<br />
-                                             If the url you want to redirect is exlusivamente the root, this has to end with a slash <strong> / </strong>. Example: http://www.example.org/
-                                            "
+            destination_example: "/processes/process-slug"
+            destination_help: The path that you want visitors to be redirected to.
+              Only accepts paths that are recognizable by the application.
+            source_example: "/my-custom-url"
+            source_help: The path that you want visitors to visit. Only accepts letters,
+              numbers, dashes, underscores and must start with a "/".
           new:
             create: Create
             title: New redirect rule
@@ -36,3 +48,9 @@ en:
             success: Redirect Rule updated successfully
         titles:
           redirect_rules: Redirect rules
+      admin_log:
+        create: "%{user_name} created a %{resource_name} with ID %{resource_id}"
+        delete: "%{user_name} deleted a %{resource_name} with ID %{resource_id}"
+        update: "%{user_name} updated a %{resource_name} with ID %{resource_id}"
+      format_error: must start with "/" and contain only letters, numbers, dashes
+        and/or underscores.

@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
+# This decorator associates the model with a Decidim::Organization and adds a custom AdminLog presenter.
 RedirectRule.class_eval do
+  # Concern added.
+  include Decidim::Traceable
+
+  # Association added.
   belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
-  validates :source, presence: true, uniqueness: { scope: :organization }
-  validates :destination, presence: true, uniqueness: { scope: :organization }
-
-  def self.match_sql_condition
-    <<-SQL
-      redirect_rules.active = :true AND
-      ((source_is_regex = :false AND source_is_case_sensitive = :false AND LOWER(redirect_rules.source) = LOWER(:source)) OR
-      (source_is_regex = :false AND source_is_case_sensitive = :true AND #{"BINARY" if connection_mysql?} redirect_rules.source = :source #{"COLLATE BINARY" if connection_sqlite?}) OR
-      (source_is_regex = :true AND (#{regex_expression})))
-    SQL
+  # Method added.
+  # Sets the presenter class for the :admin_log for a RedirectRule resource.
+  def self.log_presenter_class_for(_log)
+    Decidim::UrlAliases::AdminLog::RedirectRulePresenter
   end
 end

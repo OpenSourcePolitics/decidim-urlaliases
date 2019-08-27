@@ -13,7 +13,10 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           update_redirect_rule
+
           broadcast(:ok)
+        rescue ActiveRecord::RecordInvalid
+          broadcast(:invalid)
         end
 
         private
@@ -33,8 +36,7 @@ module Decidim
             source: form.source,
             source_is_case_sensitive: form.source_is_case_sensitive,
             destination: form.destination,
-            active: form.active,
-            organization: form.organization
+            active: form.active
           }
         end
       end
