@@ -32,9 +32,12 @@ describe Decidim::UrlAliases::RouteRecognizer do
     end
 
     context "when the request_path is a reserved_path" do
-      let(:request_path) { "/admin" }
+      reserved_paths = YAML.load_file(described_class::RESERVED_PATHS_FILE)["core_paths"]
+      reserved_paths.each do |reserved_path|
+        let(:request_path) { reserved_path }
 
-      it { is_expected.to be(true) }
+        it { is_expected.to be(true) }
+      end
     end
   end
 end
