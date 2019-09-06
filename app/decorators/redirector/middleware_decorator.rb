@@ -13,4 +13,11 @@ Redirector::Middleware::Responder.class_eval do
       rule.destination if rule && rule.organization.host == request_host
     end
   end
+
+  # Method overrided.
+  # Returns a Rack response Array with HTTP status 302 instead of 301 to prevent caching.
+  def redirect_response
+    [302, {'Location' => redirect_url_string},
+     [%{You are being redirected <a href="#{redirect_url_string}">#{redirect_url_string}</a>}]]
+  end
 end

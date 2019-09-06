@@ -40,7 +40,7 @@ config.redirector.silence_sql_logs = true
 - Create a new redirect rule. Choose a custom path as a _source_, copy the path to a resource in your app as _destination_ and make sure to check "Active".
 - Visit your custom path inside the organization host and see yourself redirected to the destination that you chose.
 
-Disclaimer: be aware that you may have to clear your web browser cache after making changes to an existing redirect rule to be redirected to the new destination.
+Disclaimer: the redirect response status is HTTP 302 to prevent caching.
 
 ## Testing
 
