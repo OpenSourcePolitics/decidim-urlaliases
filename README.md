@@ -5,11 +5,9 @@
 The module is based on the [Redirector gem](https://github.com/vigetlabs/redirector) and creates an interface for admins to manage redirect rules. Redirect rules have two parts: the _source_ defines how to match the incoming request path and the _destination_ is where to send the visitor if the match is made.
 
 The gem enforces the following restrictions to redirect rules:
-- Only paths that match public routes within _participatory spaces_ are allowed as **destination**.
-- Paths that can conflict with existing _decidim_ routes are not allowed as **source**. After installation, take a look at `config/url_aliases/reserved_paths.yml` to see which ones they are **\***. You can add custom paths to this list by adding entries to "new_reserved_paths".
+- Only paths that match public routes within _participatory spaces_ are allowed as **destination**. Exception will be made for paths starting with "/uploads" (see configuration).
+- Paths that can conflict with existing _decidim_ routes are not allowed as **source**. These paths are computed dinamically to allow for changes in decidim. After installation, take a look at `config/url_aliases/reserved_paths.yml` to see which ones they are in your application or take a look at [default_reserved_paths.yml](config/default_reserved_paths.yml) to make yourself an idea. You can expand this list at installation level (see configuration).
 - Redirect rules will only have effect when visiting the host of the `Decidim::Organization` in which they were created.
-
-**\*** Reserved paths are computed dinamically to allow for changes, but you can make yourself and idea by checking [default_reserved_paths.yml](config/default_reserved_paths.yml).
 
 ## Installation
 
@@ -31,6 +29,21 @@ Inside your configuration in `config/application.rb` of your Rails application y
 # This option silences the logging of Redirector related SQL queries in your log file
 config.redirector.silence_sql_logs = true
 ```
+## Configuration
+
+By overriding the following constants you can:
+- Add exeptions to destination validations. Any string that starts with a whitelisted prefix will be allowed as destination.
+- Add restrictions for source validation. Any string which is equal to a reserved path will not be allowed as source.
+
+```ruby
+# config/initializers/url_aliases.rb
+module Decidim
+  module UrlAliases
+    RouteRecognizer::NEW_RESERVED_PATHS   = %w(/custom_path)  # default: []
+    RouteRecognizer::WHITELISTED_PREFIXES = %w(/pages)        # default: ["/uploads"]
+  end
+end
+```
 
 ## Usage
 
@@ -40,7 +53,7 @@ config.redirector.silence_sql_logs = true
 - Create a new redirect rule. Choose a custom path as a _source_, copy the path to a resource in your app as _destination_ and make sure to check "Active".
 - Visit your custom path inside the organization host and see yourself redirected to the destination that you chose.
 
-Disclaimer: the redirect response status is HTTP 302 to prevent caching.
+Note: the redirect response status is HTTP 302 to prevent caching.
 
 ## Testing
 

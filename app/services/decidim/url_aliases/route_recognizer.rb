@@ -3,10 +3,13 @@
 module Decidim
   module UrlAliases
     class RouteRecognizer
-      RESERVED_PATHS_FILE = Rails.root.join("config", "url_aliases", "reserved_paths.yml")
       VALID_SOURCE_REGEX = %r{\A/[0-9a-zA-Z_\-]+\z}
+      NEW_RESERVED_PATHS = %w().freeze unless const_defined?(:NEW_RESERVED_PATHS)
+      WHITELISTED_PREFIXES = %w(/uploads).freeze unless const_defined?(:WHITELISTED_PREFIXES)
 
       def matching_path?(request_path)
+        return true if request_path.starts_with?(*WHITELISTED_PREFIXES)
+
         space_paths.any? { |path| path.match(request_path) }
       end
 
@@ -18,17 +21,7 @@ module Decidim
 
       # Return an Array[String].
       def reserved_paths
-        new_reserved_paths + core_paths + verifications_paths + space_index_paths
-      end
-
-      # Return an Array[String].
-      def new_reserved_paths
-        @new_reserved_paths ||= begin
-          paths = YAML.load_file(RESERVED_PATHS_FILE) if File.exist?(RESERVED_PATHS_FILE)
-          paths.try(:[], "new_reserved_paths") || []
-        rescue TypeError
-          []
-        end
+        NEW_RESERVED_PATHS + core_paths + verifications_paths + space_index_paths
       end
 
       # Return an Array[String].

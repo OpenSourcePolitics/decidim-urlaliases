@@ -16,10 +16,10 @@ module Decidim
           with: RouteRecognizer::VALID_SOURCE_REGEX,
           message: I18n.t("decidim.url_aliases.format_error")
         }
-        validate :source_uniqueness
-        validate :source_must_not_be_reserved
-        validate :destination_uniqueness
-        validate :destination_must_be_recognized
+        validate :source_uniqueness,              if: :source
+        validate :source_must_not_be_reserved,    if: :source
+        validate :destination_uniqueness,         if: :destination
+        validate :destination_must_be_recognized, if: :destination
 
         private
 

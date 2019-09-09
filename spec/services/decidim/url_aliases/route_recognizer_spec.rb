@@ -20,6 +20,12 @@ describe Decidim::UrlAliases::RouteRecognizer do
 
       it { is_expected.to be(false) }
     end
+
+    context "when the request_path is in WHITELISTED_PREFIXES" do
+      let(:request_path) { "/uploads" }
+
+      it { is_expected.to be(true) }
+    end
   end
 
   describe "#reserved_path?" do
@@ -32,12 +38,17 @@ describe Decidim::UrlAliases::RouteRecognizer do
     end
 
     context "when the request_path is a reserved_path" do
-      reserved_paths = YAML.load_file(described_class::RESERVED_PATHS_FILE)["core_paths"]
-      reserved_paths.each do |reserved_path|
-        let(:request_path) { reserved_path }
+      let(:request_path) { "/admin" }
 
-        it { is_expected.to be(true) }
-      end
+      it { is_expected.to be(true) }
+    end
+
+    context "when the request_path is in NEW_RESERVED_PATHS" do
+      let(:request_path) { "/custom_path" }
+
+      before { described_class::NEW_RESERVED_PATHS = ["/custom_path"] }
+
+      it { is_expected.to be(true) }
     end
   end
 end
