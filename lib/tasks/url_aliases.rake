@@ -30,7 +30,7 @@ namespace :url_aliases do
 
     def filepath(filename)
       Dir.mkdir("config/url_aliases") unless File.directory?("config/url_aliases")
-      Rails.root.join("config", "url_aliases", "#{filename}.yml")
+      Rails.root.join("config", "url_aliases", "#{filename}.yml").to_s
     end
   end
 end
