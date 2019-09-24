@@ -33,12 +33,14 @@ en:
             title: Edit redirect rule
             update: Update
           form:
+            active: Active
             destination_example: "/processes/process-slug"
             destination_help: The path that you want visitors to be redirected to.
               Only accepts paths that are recognizable by the application.
             source_example: "/my-custom-url"
             source_help: The path that you want visitors to visit. Only accepts letters,
               numbers, dashes, underscores and must start with a "/".
+            source_is_case_sensitive: Source is case sensitive
           new:
             create: Create
             title: New redirect rule

@@ -27,8 +27,8 @@
               <td><%= redirect_rule.id %></td>
               <td><%= redirect_rule.source %></td>
               <td><%= redirect_rule.destination %></td>
-              <td><%= redirect_rule.source_is_case_sensitive? ? "yes" : "no" %></td>
-              <td><%= redirect_rule.active? ? "yes" : "no" %></td>
+              <td><%= redirect_rule.source_is_case_sensitive? ? t("booleans.true") : t("booleans.false") %></td>
+              <td><%= redirect_rule.active? ? t("booleans.true") : t("booleans.false") %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :redirect_rule, redirect_rule: redirect_rule %>
                   <%= icon_link_to "pencil", ["edit", redirect_rule], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>

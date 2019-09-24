@@ -1,0 +1,57 @@
+---
+fr:
+  activemodel:
+    errors:
+      models:
+        redirect_rule:
+          attributes:
+            destination:
+              not_recognized: doit être reconnue par l'application.
+            source:
+              reserved: ne doit pas être un mot réservé.
+  decidim:
+    url_aliases:
+      admin:
+        menu:
+          url_aliases: Redirections
+        models:
+          redirect_rule:
+            fields:
+              active: Activée
+              destination: Destination
+              id: Id
+              source: Source
+              source_is_case_sensitive: Sensible à la casse
+        redirect_rules:
+          create:
+            error: Il y une erreur lors de la création de la redirection.
+            success: La redirection a été créée avec succès.
+          destroy:
+            error: Il y une erreur lors de la suppression de la redirection.
+            success: La redirection a été supprimée avec succès.
+          edit:
+            title: Modifier la rédirection
+            update: Mettre à jour
+          form:
+            active: Activée
+            destination_example: "/processes/process-slug"
+            destination_help: Le chemin vers lequel vos visiteurs seront redirigés.
+              Seules les destinations reconnues par l'application sont acceptés.
+            source_example: "/my-custom-url"
+            source_help: Le chemin à partir du quel vos visiteurs seront redirigés.
+              Il doit commencer par un "/" et ne peut contenir que des lettres, des chiffres, des tirets et tirets bas.
+            source_is_case_sensitive: la source est sensible à la casse
+          new:
+            create: Créer
+            title: Nouvelle redirection
+          no_redirect_rules: Aucunes redirections disponibles
+          update:
+            error: Il y une erreur lors de la mise à jour de la redirection.
+            success: La redirection a été mise à jour.
+        titles:
+          redirect_rules: Redirections
+      admin_log:
+        create: "%{user_name} a créé la %{resource_name} avec l'Id %{resource_id}"
+        delete: "%{user_name} a supprimé la %{resource_name} avec l'Id %{resource_id}"
+        update: "%{user_name} a mis à jour la %{resource_name} avec l'Id %{resource_id}"
+      format_error: doit commencer par un "/" et contenir uniquement des lettres, chiffres, tirets et tirets bas.

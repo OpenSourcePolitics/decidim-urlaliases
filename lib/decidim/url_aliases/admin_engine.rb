@@ -23,7 +23,7 @@ module Decidim
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.url_aliases", scope: "decidim.url_aliases.admin"),
                     decidim_url_aliases_admin.redirect_rules_path,
-                    icon_name: "wrench",
+                    icon_name: "fork",
                     position: 14,
                     active: [%w(decidim/url_aliases/admin/redirect_rules), []],
                     if: allowed_to?(:update, :organization, organization: current_organization)
