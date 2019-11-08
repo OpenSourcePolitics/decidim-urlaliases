@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary = "Decidim UrlAliases"
   s.description = "Decidim UrlAliases"
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   DECIDIM_VERSION = ">= 0.16.1"
 
