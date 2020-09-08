@@ -48,6 +48,6 @@ RedirectRule.class_eval do
     # rubocop:enable Style/StringLiterals
     match_scope = match_scope.includes(:request_environment_rules)
     match_scope = match_scope.references(:request_environment_rules) if Rails.version.to_i == 4
-    match_scope.select { |rule| rule.request_environment_rules.all? { |env_rule| env_rule.matches?(environment) } }
+    match_scope.select { |rule| rule.request_environment_rules.all? { |env_rule| env_rule.matches?(environment) } }.sort_by(&:updated_at).reverse
   end
 end

@@ -18,7 +18,7 @@ describe RedirectRule do
   end
 
   describe "::log_presenter_class_for" do
-    subject { RedirectRule.log_presenter_class_for(:admin_log) }
+    subject { described_class.log_presenter_class_for(:admin_log) }
 
     it { is_expected.to be(Decidim::UrlAliases::AdminLog::RedirectRulePresenter) }
   end

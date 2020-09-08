@@ -8,9 +8,9 @@ gem "decidim", git: "https://github.com/OpenSourcePolitics/decidim.git", branch:
 gem "decidim-url_aliases", path: "."
 
 group :development, :test do
-  gem "decidim-dev", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "0.18-merge"
   gem "bootsnap", require: true
   gem "byebug", "~> 10.0", platform: :mri
+  gem "decidim-dev", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "0.18-merge"
   gem "faker", "~> 1.8"
   gem "listen"
 end

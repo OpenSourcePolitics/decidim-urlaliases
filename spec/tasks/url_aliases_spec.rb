@@ -15,10 +15,12 @@ describe "url_aliases" do
       allow(File).to receive(:write)
     end
 
-    it "should create a YAML file with reserved_paths in it" do
+    it "creates a YAML file with reserved_paths in it" do
       expect(File).to receive(:write).with(
+        # rubocop:disable Style/RegexpLiteral
         /config\/url_aliases\/reserved_paths.yml/,
-       Regexp.union(/.+core_paths:/,/.*verifications_paths:/,/.*space_index_paths:.+/)
+        # rubocop:enable Style/RegexpLiteral
+        Regexp.union(/.+core_paths:/, /.*verifications_paths:/, /.*space_index_paths:.+/)
       )
 
       invoke_task

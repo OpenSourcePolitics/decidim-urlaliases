@@ -46,7 +46,7 @@ describe Decidim::UrlAliases::RouteRecognizer do
     context "when the request_path is in NEW_RESERVED_PATHS" do
       let(:request_path) { "/custom_path" }
 
-      before { described_class::NEW_RESERVED_PATHS = ["/custom_path"] }
+      before { described_class::NEW_RESERVED_PATHS = ["/custom_path"].freeze }
 
       it { is_expected.to be(true) }
     end
