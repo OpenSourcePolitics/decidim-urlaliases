@@ -13,12 +13,22 @@ describe "Redirector middleware", type: :request do
 
     it "redirects the visitor for a rule of the same organization" do
       get rule.source
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(:found)
       expect(response).to redirect_to(rule.destination)
     end
 
     it "does NOT redirect the visitor for a rule of OTHER organization" do
       expect { get other_rule.source }.to raise_error(ActionController::RoutingError, /#{other_rule.source}/)
+    end
+
+    context "when another organization has the same rule" do
+      let!(:other_rule) { create(:redirect_rule, source: rule.source) }
+
+      it "redirects the visitor for a rule of the same organization" do
+        get rule.source
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(rule.destination)
+      end
     end
   end
 end
