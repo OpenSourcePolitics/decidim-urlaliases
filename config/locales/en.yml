@@ -12,6 +12,13 @@ en:
   decidim:
     url_aliases:
       admin:
+        decidim:
+          url_aliases:
+            admin:
+              redirect_rules:
+                index:
+                  'no': 'no'
+                  'yes': 'yes'
         menu:
           url_aliases: Url aliases
         models:

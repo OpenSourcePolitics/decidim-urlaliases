@@ -11,7 +11,7 @@
     <% if @redirect_rules.any? %>
       <div class="table-scroll">
         <table class="table-list">
-        <thead>
+          <thead>
           <tr>
             <th><%= t("models.redirect_rule.fields.id", scope: "decidim.url_aliases.admin") %></th>
             <th><%= t("models.redirect_rule.fields.source", scope: "decidim.url_aliases.admin") %></th>
@@ -20,15 +20,15 @@
             <th><%= t("models.redirect_rule.fields.active", scope: "decidim.url_aliases.admin") %></th>
             <th></th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           <% @redirect_rules.each do |redirect_rule| %>
             <tr id="redirect-rule-<%= redirect_rule.id %>">
               <td><%= redirect_rule.id %></td>
               <td><%= redirect_rule.source %></td>
               <td><%= redirect_rule.destination %></td>
-              <td><%= redirect_rule.source_is_case_sensitive? ? t("booleans.true") : t("booleans.false") %></td>
-              <td><%= redirect_rule.active? ? t("booleans.true") : t("booleans.false") %></td>
+              <td><%= redirect_rule.source_is_case_sensitive? ? t(".yes", scope: "decidim.url_aliases.admin") : t(".no", scope: "decidim.url_aliases.admin") %></td>
+              <td><%= redirect_rule.active? ? t(".yes", scope: "decidim.url_aliases.admin") : t(".no", scope: "decidim.url_aliases.admin") %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :redirect_rule, redirect_rule: redirect_rule %>
                   <%= icon_link_to "pencil", ["edit", redirect_rule], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
@@ -40,7 +40,7 @@
               </td>
             </tr>
           <% end %>
-        </tbody>
+          </tbody>
         </table>
       </div>
     <% else %>

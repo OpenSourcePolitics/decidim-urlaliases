@@ -12,6 +12,13 @@ fr:
   decidim:
     url_aliases:
       admin:
+        decidim:
+          url_aliases:
+            admin:
+              redirect_rules:
+                index:
+                  'no': 'non'
+                  'yes': 'oui'
         menu:
           url_aliases: Redirections
         models:
@@ -39,7 +46,8 @@ fr:
               Seules les destinations reconnues par l'application sont acceptés.
             source_example: "/my-custom-url"
             source_help: Le chemin à partir du quel vos visiteurs seront redirigés.
-              Il doit commencer par un "/" et ne peut contenir que des lettres, des chiffres, des tirets et tirets bas.
+              Il doit commencer par un "/" et ne peut contenir que des lettres, des
+              chiffres, des tirets et tirets bas.
             source_is_case_sensitive: la source est sensible à la casse
           new:
             create: Créer
@@ -54,4 +62,5 @@ fr:
         create: "%{user_name} a créé la %{resource_name} avec l'Id %{resource_id}"
         delete: "%{user_name} a supprimé la %{resource_name} avec l'Id %{resource_id}"
         update: "%{user_name} a mis à jour la %{resource_name} avec l'Id %{resource_id}"
-      format_error: doit commencer par un "/" et contenir uniquement des lettres, chiffres, tirets et tirets bas.
+      format_error: doit commencer par un "/" et contenir uniquement des lettres,
+        chiffres, tirets et tirets bas.
