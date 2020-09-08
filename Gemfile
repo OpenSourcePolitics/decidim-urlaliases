@@ -4,13 +4,11 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gemspec
-
-DECIDIM_VERSION = { git: "https://github.com/OpenSourcePolitics/decidim.git" }.freeze
-
-gem "decidim", DECIDIM_VERSION
+gem "decidim", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "0.18-merge"
+gem "decidim-url_aliases", path: "."
 
 group :development, :test do
+  gem "decidim-dev", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "0.18-merge"
   gem "bootsnap", require: true
   gem "byebug", "~> 10.0", platform: :mri
   gem "faker", "~> 1.8"
