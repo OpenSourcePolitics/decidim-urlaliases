@@ -5,9 +5,9 @@ fr:
         redirect_rule:
           attributes:
             destination:
-              not_recognized: must be recognized by the application.
+              not_recognized: doit être reconnue par l'application.
             source:
-              reserved: must not be a reserved keyword.
+              reserved: ne doit pas être un mot réservé.
   decidim:
     url_aliases:
       admin:
@@ -16,46 +16,46 @@ fr:
             admin:
               redirect_rules:
                 index:
-                  'no': 'no'
-                  'yes': 'yes'
+                  'no': 'non'
+                  'yes': 'oui'
         menu:
-          url_aliases: Url aliases
+          url_aliases: Redirections
         models:
           redirect_rule:
             fields:
-              active: Active
+              active: Activée
               destination: Destination
               id: Id
               source: Source
-              source_is_case_sensitive: Source is case sensitive
+              source_is_case_sensitive: Sensible à la casse
         redirect_rules:
           create:
-            error: There was an error creating a new redirect rule.
-            success: Redirect Rule created successfully.
+            error: Il y une erreur lors de la création de la redirection.
+            success: La redirection a été créée avec succès.
           destroy:
-            error: There was an error deleting the redirect rule.
-            success: Redirect rule successfully destroyed
+            error: Il y une erreur lors de la suppression de la redirection.
+            success: La redirection a été supprimée avec succès.
           edit:
-            title: Edit redirect rule
-            update: Update
+            title: Modifier la rédirection
+            update: Mettre à jour
           form:
-            active: Active
+            active: Activée
             destination_example: "/processes/process-slug"
-            destination_help: The path that you want visitors to be redirected to. Only accepts paths that are recognizable by the application.
+            destination_help: Le chemin vers lequel vos visiteurs seront redirigés. Seules les destinations reconnues par l'application sont acceptés.
             source_example: "/my-custom-url"
-            source_help: The path that you want visitors to visit. Only accepts letters, numbers, dashes, underscores and must start with a "/".
-            source_is_case_sensitive: Source is case sensitive
+            source_help: Le chemin à partir du quel vos visiteurs seront redirigés. Il doit commencer par un "/" et ne peut contenir que des lettres, des chiffres, des tirets et tirets bas.
+            source_is_case_sensitive: la source est sensible à la casse
           new:
-            create: Create
-            title: New redirect rule
-          no_redirect_rules: No redirect rules
+            create: Créer
+            title: Nouvelle redirection
+          no_redirect_rules: Aucunes redirections disponibles
           update:
-            error: There was an error when updating this redirect rule.
-            success: Redirect Rule updated successfully
+            error: Il y une erreur lors de la mise à jour de la redirection.
+            success: La redirection a été mise à jour.
         titles:
-          redirect_rules: Redirect rules
+          redirect_rules: Redirections
       admin_log:
-        create: "%{user_name} created a %{resource_name} with ID %{resource_id}"
-        delete: "%{user_name} deleted a %{resource_name} with ID %{resource_id}"
-        update: "%{user_name} updated a %{resource_name} with ID %{resource_id}"
-      format_error: must start with "/" and contain only letters, numbers, dashes and/or underscores.
+        create: "%{user_name} a créé la %{resource_name} avec l'Id %{resource_id}"
+        delete: "%{user_name} a supprimé la %{resource_name} avec l'Id %{resource_id}"
+        update: "%{user_name} a mis à jour la %{resource_name} avec l'Id %{resource_id}"
+      format_error: doit commencer par un "/" et contenir uniquement des lettres, chiffres, tirets et tirets bas.
