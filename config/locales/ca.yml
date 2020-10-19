@@ -1,0 +1,61 @@
+ca:
+  activemodel:
+    errors:
+      models:
+        redirect_rule:
+          attributes:
+            destination:
+              not_recognized: must be recognized by the application.
+            source:
+              reserved: must not be a reserved keyword.
+  decidim:
+    url_aliases:
+      admin:
+        decidim:
+          url_aliases:
+            admin:
+              redirect_rules:
+                index:
+                  'no': 'no'
+                  'yes': 'yes'
+        menu:
+          url_aliases: Url aliases
+        models:
+          redirect_rule:
+            fields:
+              active: Active
+              destination: Destination
+              id: Id
+              source: Source
+              source_is_case_sensitive: Source is case sensitive
+        redirect_rules:
+          create:
+            error: There was an error creating a new redirect rule.
+            success: Redirect Rule created successfully.
+          destroy:
+            error: There was an error deleting the redirect rule.
+            success: Redirect rule successfully destroyed
+          edit:
+            title: Edit redirect rule
+            update: Update
+          form:
+            active: Active
+            destination_example: "/processes/process-slug"
+            destination_help: The path that you want visitors to be redirected to. Only accepts paths that are recognizable by the application.
+            source_example: "/my-custom-url"
+            source_help: The path that you want visitors to visit. Only accepts letters, numbers, dashes, underscores and must start with a "/".
+            source_is_case_sensitive: Source is case sensitive
+          new:
+            create: Create
+            title: New redirect rule
+          no_redirect_rules: No redirect rules
+          update:
+            error: There was an error when updating this redirect rule.
+            success: Redirect Rule updated successfully
+        titles:
+          redirect_rules: Redirect rules
+      admin_log:
+        create: "%{user_name} created a %{resource_name} with ID %{resource_id}"
+        delete: "%{user_name} deleted a %{resource_name} with ID %{resource_id}"
+        update: "%{user_name} updated a %{resource_name} with ID %{resource_id}"
+      format_error: must start with "/" and contain only letters, numbers, dashes and/or underscores.
