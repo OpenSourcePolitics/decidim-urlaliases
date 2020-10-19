@@ -36,7 +36,7 @@ fr:
             error: Il y une erreur lors de la suppression de la redirection.
             success: La redirection a été supprimée avec succès.
           edit:
-            title: Modifier la rédirection
+            title: Modifier la redirection
             update: Mettre à jour
           form:
             active: Activée
@@ -51,7 +51,7 @@ fr:
           no_redirect_rules: Aucunes redirections disponibles
           update:
             error: Il y une erreur lors de la mise à jour de la redirection.
-            success: La redirection a été mise à jour.
+            success: La redirection a été mise à jour
         titles:
           redirect_rules: Redirections
       admin_log:
