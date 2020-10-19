@@ -17,7 +17,7 @@ es:
               redirect_rules:
                 index:
                   'no': 'no'
-                  'yes': 'yes'
+                  'yes': 'si'
         menu:
           url_aliases: Url aliases
         models:
