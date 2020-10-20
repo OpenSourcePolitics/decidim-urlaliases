@@ -14,7 +14,7 @@ The gem enforces the following restrictions to redirect rules:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-urlaliases'
+gem "decidim-url_aliases", git: "https://github.com/OpenSourcePolitics/decidim-urlaliases.git"
 ```
 
 And then execute:
