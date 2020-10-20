@@ -44,7 +44,7 @@ fr:
             destination_help: Le chemin vers lequel vos visiteurs seront redirigés. Seules les destinations reconnues par l'application sont acceptés.
             source_example: "/my-custom-url"
             source_help: Le chemin à partir du quel vos visiteurs seront redirigés. Il doit commencer par un "/" et ne peut contenir que des lettres, des chiffres, des tirets et tirets bas.
-            source_is_case_sensitive: La source est sensible à la casse
+            source_is_case_sensitive: la source est sensible à la casse
           new:
             create: Créer
             title: Nouvelle redirection
@@ -55,7 +55,7 @@ fr:
         titles:
           redirect_rules: Redirections
       admin_log:
-        create: "%{user_name} a créé la %{resource_name} avec l'ID %{resource_id}"
-        delete: "%{user_name} a supprimé la %{resource_name} avec l'ID %{resource_id}"
-        update: "%{user_name} a mis à jour la %{resource_name} avec l'ID %{resource_id}"
+        create: "%{user_name} a créé la %{resource_name} avec l'Id %{resource_id}"
+        delete: "%{user_name} a supprimé la %{resource_name} avec l'Id %{resource_id}"
+        update: "%{user_name} a mis à jour la %{resource_name} avec l'Id %{resource_id}"
       format_error: doit commencer par un "/" et contenir uniquement des lettres, chiffres, tirets et tirets bas.
