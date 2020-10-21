@@ -47,11 +47,16 @@ end
 
 ## Usage
 
-- Install the gem
-- Login to the application as an administrator.
-- Go to the Admin panel > Url Aliases.
-- Create a new redirect rule. Choose a custom path as a _source_, copy the path to a resource in your app as _destination_ and make sure to check "Active".
-- Visit your custom path inside the organization host and see yourself redirected to the destination that you chose.
+Once the gem installed, login to the application as an administrator and go to the Admin panel, click on the tab "Url Aliases".
+![admin](https://i.imgur.com/SlLnlx4.png)
+
+There you'll see the list of aliases you created already. 
+![index](https://i.imgur.com/VLNZNJO.png)
+
+Create a new redirect rule by clicking on "Add". Choose a custom path as a _source_, copy the path to a resource in your app as _destination_ and make sure to check "Active" so that the redirection is effective. Disabling the "active" active checkbox will render the redirection inopperant. Check case sensitive if your _source_ contains caps.
+![form](https://i.imgur.com/w469DBK.png)
+
+Test your alias by inputing in your navigator and see yourself redirected to the destination that you chose.
 
 Note: the redirect response status is HTTP 302 to prevent caching.
 
