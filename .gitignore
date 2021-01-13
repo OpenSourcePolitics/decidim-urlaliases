@@ -16,7 +16,5 @@ spec/decidim_dummy_app
 # default development application
 development_app
 
-Gemfile.lock
-
 # byebug
 .byebug_history

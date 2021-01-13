@@ -4,13 +4,13 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "0.18-merge"
+gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "0.18-stable"
 gem "decidim-url_aliases", path: "."
 
 group :development, :test do
   gem "bootsnap", require: true
   gem "byebug", "~> 10.0", platform: :mri
-  gem "decidim-dev", git: "https://github.com/OpenSourcePolitics/decidim.git", branch: "0.18-merge"
+  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: "0.18-stable"
   gem "faker", "~> 1.8"
   gem "listen"
 end
