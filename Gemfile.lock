@@ -201,7 +201,7 @@ PATH
   remote: .
   specs:
     decidim-url_aliases (0.0.1)
-      decidim-core (~> 0.21)
+      decidim-core (~> 0.2)
       rails (>= 5.2)
       redirector
 
