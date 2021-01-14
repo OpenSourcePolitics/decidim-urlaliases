@@ -18,16 +18,16 @@ describe "Redirect rules", type: :system do
   it "shows the redirect rule table list" do
     within "#redirect_rules" do
       within ".card-title" do
-        expect(page).to have_content("REDIRECT RULES")
+        expect(page).to have_content("Redirect rules")
         expect(page).to have_link("Add")
       end
 
       within "table thead" do
-        expect(page).to have_content("ID")
-        expect(page).to have_content("SOURCE")
-        expect(page).to have_content("DESTINATION")
-        expect(page).to have_content("SOURCE IS CASE SENSITIVE")
-        expect(page).to have_content("ACTIVE")
+        expect(page).to have_content("Id")
+        expect(page).to have_content("Source")
+        expect(page).to have_content("Destination")
+        expect(page).to have_content("Source is case sensitive")
+        expect(page).to have_content("Active")
       end
     end
   end
@@ -56,7 +56,7 @@ describe "Redirect rules", type: :system do
 
     it "shows the empty form" do
       within "form.new_redirect_rule" do
-        expect(page).to have_content("NEW REDIRECT RULE")
+        expect(page).to have_content("New redirect rule")
         expect(page).to have_field("Source", placeholder: "/my-custom-url")
         expect(page).to have_field("Source is case sensitive", checked: false)
         expect(page).to have_field("Destination", placeholder: "/processes/process-slug")
@@ -99,7 +99,7 @@ describe "Redirect rules", type: :system do
 
     it "shows the prefilled form" do
       within "form.edit_redirect_rule" do
-        expect(page).to have_content("EDIT REDIRECT RULE")
+        expect(page).to have_content("Edit redirect rule")
         expect(page).to have_field("Source", with: rule.source)
         expect(page).to have_field("Source is case sensitive", checked: rule.source_is_case_sensitive)
         expect(page).to have_field("Destination", with: rule.destination)
@@ -137,12 +137,13 @@ describe "Redirect rules", type: :system do
   context "when deleting a redirect rule" do
     before { click_link("Delete") }
 
-    it "is shown the confirm alert" do
-      expect(accept_alert).to eq("Confirm delete")
+    it "is shown the confirm alert", :slow do
+      expect(accept_confirm).to eq("Confirm delete")
     end
 
     it "deletes the redirect rule" do
-      page.driver.browser.switch_to.alert.accept
+      accept_confirm
+
       expect(page).to have_css(".callout.success", text: "successfully")
     end
   end
