@@ -31,7 +31,7 @@
               <td><%= redirect_rule.active? ? t(".yes", scope: "decidim.url_aliases.admin") : t(".no", scope: "decidim.url_aliases.admin") %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :redirect_rule, redirect_rule: redirect_rule %>
-                  <%= icon_link_to "pencil", ["edit", redirect_rule], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                  <%= icon_link_to "pencil", [:edit, redirect_rule], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :redirect_rule, redirect_rule: redirect_rule %>
