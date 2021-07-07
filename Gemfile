@@ -4,15 +4,15 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable"
+gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "release/0.24-stable"
 gem "decidim-url_aliases", path: "."
 
 group :development, :test do
   gem "bootsnap", require: true
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable"
-  gem "faker", "~> 1.8"
+  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: "release/0.24-stable"
+  gem "faker", "~> 2.14"
   gem "listen"
 end
 
