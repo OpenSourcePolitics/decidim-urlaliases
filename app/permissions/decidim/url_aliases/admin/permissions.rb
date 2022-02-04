@@ -5,7 +5,9 @@ module Decidim
     module Admin
       class Permissions < Decidim::Admin::Permissions
         def permissions
-          return permission_action unless user && permission_action.scope == :admin
+          return permission_action unless user
+
+          return permission_action unless user.admin? && permission_action.scope == :admin
 
           permission_action.allow! if can_perform_actions_on?(:redirect_rule, redirect_rule)
 

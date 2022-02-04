@@ -71,5 +71,11 @@ describe Decidim::UrlAliases::Admin::RedirectRuleForm do
 
       it { is_expected.to be_invalid }
     end
+
+    context "when the destinations contains some special characters" do
+      let(:destination) { "/uploads/../users/sign_in?redirect_url=@protect7" }
+
+      it { is_expected.to be_invalid }
+    end
   end
 end
