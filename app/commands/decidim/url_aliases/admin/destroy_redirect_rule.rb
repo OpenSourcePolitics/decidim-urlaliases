@@ -3,7 +3,7 @@
 module Decidim
   module UrlAliases
     module Admin
-      class DestroyRedirectRule < Rectify::Command
+      class DestroyRedirectRule < Decidim::Command
         def initialize(redirect_rule, current_user)
           @redirect_rule = redirect_rule
           @current_user = current_user

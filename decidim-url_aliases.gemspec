@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["contact@opensourcepolitics.eu", "info@coditramuntana.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/OpenSourcePolitics/decidim-urlaliases"
-  s.required_ruby_version = ">= 2.5.3"
+  s.required_ruby_version = ">= 3.0.6"
 
   s.name = "decidim-url_aliases"
   s.summary = "Decidim UrlAliases"
@@ -18,12 +18,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-
-  DECIDIM_VERSION = "~> 0.24"
+  DECIDIM_VERSION = ">= 0.27"
 
   s.add_dependency "decidim-core", DECIDIM_VERSION
-  s.add_dependency "rails", ">= 5.2"
   s.add_dependency "redirector"
 
+  s.add_development_dependency "decidim", DECIDIM_VERSION
   s.add_development_dependency "decidim-dev", DECIDIM_VERSION
 end

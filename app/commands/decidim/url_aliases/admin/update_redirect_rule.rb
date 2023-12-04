@@ -3,7 +3,7 @@
 module Decidim
   module UrlAliases
     module Admin
-      class UpdateRedirectRule < Rectify::Command
+      class UpdateRedirectRule < Decidim::Command
         def initialize(redirect_rule, form)
           @redirect_rule = redirect_rule
           @form = form

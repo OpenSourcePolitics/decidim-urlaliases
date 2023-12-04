@@ -4,19 +4,23 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "release/0.24-stable"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.27-stable" }.freeze
+
+gem "decidim", DECIDIM_VERSION
 gem "decidim-url_aliases", path: "."
 
-group :development, :test do
-  gem "bootsnap", require: true
-  gem "byebug", "~> 11.0", platform: :mri
+# temporal solution while gems embrace new psych 4 (the default in Ruby 3.1) behavior.
+gem "psych", "< 4"
 
-  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: "release/0.24-stable"
-  gem "faker", "~> 2.14"
-  gem "listen"
+group :development, :test do
+  gem "bootsnap", "~> 1.4", require: true
+  gem "byebug", ">= 11.1.3", platform: :mri
+  gem "decidim-dev", DECIDIM_VERSION
+  gem "faker"
+  gem "listen", "~> 3.1"
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3.3"
+  gem "letter_opener_web", "~> 1.3"
   gem "web-console", "~> 3.5"
 end
